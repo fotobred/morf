@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head data-live-domain="walks.ru">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MORF</title>
+	<link  href="/sup/morf/css/morf.css" media="screen" type="text/css" rel="stylesheet">	
+	<!--- script src="/sup/morf/lib/modernizr.js" ></script --->
+	<script src="/sup/morf/lib/jquery-1.10.2.min.js" ></script>
+	<script src="/sup/morf/lib/jquery-ui-1.10.3.custom.min.js" ></script>
+	<script src="/sup/morf/lib/jquery.ui.touch-punch.min.js" ></script>	
+	<script src="/sup/morf/lib/jquery.cookies.js" ></script>	
+	<script src="/sup/morf/php/s_conf.php" type="text/javascript"  ></script>
+	<script src="/sup/morf/js/morf_toools.js" ></script>
+	<script src="/sup/morf/js/morf.js" ></script>
+	<script src="/sup/morf/js/morf_x_prog.js" ></script>
+	
+</head> 
+<body>
+	<div id="all">
+		<div id="showLoad"></div>
+		<div id="header" class="" >
+			Test_04  MORF
+		</div>
+		<div id="work_zone">
+			<div id="nav" class="wind"  reg="file" >
+				<div  class="reg_menu" >
+					<span id='file' class = "reg_view" 		reg = "file">диск</span>
+					<span id='db'   class = "reg_view tek" 	reg = "db"  >база</span>
+					<span id='project' class = "reg_view" 		reg = "project">проект</span>
+					<!-- span id='prog' class = "reg_view" 		reg = "project">проект</span -->
+				</div>
+				<div id="navW" class="wrk"></div>
+			</div>
+			<div id="nw" class="ui-draggable" >
+			</div>
+			<div id="work" class="wind"  view="list"  reg="file">
+				<div  class="reg_menu" >
+					<span id='list' class="reg_view tek" view="list">список</span>
+					<span id='tabl' class="reg_view"	 view="tabl">таблица</span>
+					<span id='plit' class="reg_view" 	 view="tile">плитка</span>
+				</div>
+				<div id="workW"  ></div>
+			</div>
+			<div id="wb" class="ui-draggable" ></div>
+			<div id="buf" class="wind" >
+			<div id="bufW" class="wrk" >buff</div>			
+			</div>			
+		</div>
+		<div id="bb" class="ui-draggable" ></div>
+		<div id="bot" class="" >
+			<div id="dgn" class="wind" >
+				bottom<br>
+				<a>a</a>
+			</div>
+			<div id="cmd" class="wind" >
+				<div id="cmdC" class="wrk"  >
+					&#9658; 
+					<input class='cmd' ></input>
+					<span class='cmd_btn'>enter</span>
+				</div>
+				<div id="cmdW" class="wrk" >  </div>
+			</div>
+		</div>		
+		
+		<div id="cntxMenu" ></div>
+		<div id="showZ" ><div id="showZo" >
+		<div id="showZone" >showZone</div>
+		</div></div>
+		<div id="em" ></div>
+		<div id="enter">
+			<form id="form">
+				<b>MORF Commander</b><br>
+				<b>Логин</b>  <input class="login"    type="text" ><br>
+				<b>Пароль</b> <input class="password" type="password" ><br>
+				<label>Не прикреплять к IP(не безопасно) <input type="checkbox" class="not_ip"></label><br>
+				<a class="submit enter" style="text-align:left"> Вход</a>  
+				<a class="submit register" style="text-align:right"> Регистрация</a>
+				<div id="enter_repl" ></div>
+			</form><br>
+		</div>
+	</div>		
+</body>
+</html>

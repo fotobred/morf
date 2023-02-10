@@ -1,0 +1,839 @@
+/*
+		test_05
+*/
+
+/* -------------- общее оформление  ---------------------------------- */
+
+
+body {
+	color: #222;
+    font: 13px/18px HelveticaNeue, Helvetica, Arial, sans-serif;
+	display: block; 
+	background-color: #eee;
+	margin: 0;
+}
+
+
+#enter {
+	display:  block; /* none;  block; */
+	position: fixed;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	padding: auto;
+	background-color: #777; 
+	z-index: 111;
+}
+
+#enter.close {
+	display: none; 
+}	
+
+#enter #form {
+	display: block; 
+	height: 14em;
+	width:  28em;
+	padding-left: 5em ;
+	padding-top: 1em ;
+	margin:  30%;
+	line-height: 2.05em;
+	border:	1px solid #333;
+	background-color: #eee; 
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 1px 1px 2px 0px #777;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;	
+}
+
+#enter #form b {
+	display: inline-block;
+	width:  6em;
+	}	
+#enter #form b:nth-child(1) {
+	display: inline-block;
+	letter-spacing: 0.55em;
+	word-spacing: 0.9em;
+	width:  21em;
+}		
+		
+
+#enter #form .submit {
+	display: inline-block;
+	margin: 0 2em 0 0 ;
+	padding: 0 1.51em  ;
+	border:	1px solid #333;
+	font-weight: bold;
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 1px 1px 2px 0px #777;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;	
+}
+
+#enter #form .submit:hover {
+	background-color: #fff;
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 1px 1px 1px 0px #777;	
+}
+
+#enter #enter_repl {
+	color: #911;
+	font-weight: bold;
+	margin-top: 0.6em;
+	line-height: 1.3em;
+}
+
+	
+#em {
+	display: none; 
+	position: fixed;
+	height: 1em;
+	width:  1em;
+	margin:  0;
+	padding: 0;
+}
+
+
+#all {
+	display: block; 
+	position: fixed;
+	height: 100%;
+	width:  100%;
+}
+
+
+#all #showLoad {
+	display: block; /*noneblock;*/
+	position: absolute;
+	width: 99%;
+	height: 99%;
+	background: url('/sup/aniload.gif') no-repeat center center;
+	z-index: 111;
+}
+
+#all #showLoad.hide {
+	display: none;
+	z-index: -11;
+}
+
+
+
+#work_zone {
+	display: block; 
+	position: fixed;
+	top: 4em;
+	left: 0;
+	right: 0;
+	width:  100%;
+	bottom: 9em;
+}
+
+#header,
+#work_zone,
+#bb,
+#bot {
+	position: fixed;
+}
+
+#nav,
+#work,
+#buf,
+#nw,
+#wb,
+#cmd,
+#dgn {
+	position: absolute;
+}
+
+#nav .reg_menu,
+#work .reg_menu {
+	white-space: nowrap; 
+	overflow:hidden;
+}
+
+#header { 
+	top: 1em;
+	left: 1em;
+	right: 1em;
+	height: 3em; 
+}
+
+#nav,
+#nw,
+#work,
+#wb,
+#buf {
+	top: 0em;
+	bottom: 0em;	
+    font: 13px/22.5px HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+
+#nw,
+#wb,
+#bb,
+#navW,
+#workW,
+#bufW,
+#cmdW {
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 2px 3px 4px 0px #aaa;
+}
+
+#nav	{ 
+	left: 0;
+	width: 17em;
+}
+#work	{ 
+	left:  17em;
+	right: 5em;
+}
+
+#buf 	{ 
+	width: 5em;
+	right:  0;
+}
+
+#cmd 	{ 
+	top: 0.5em;
+	bottom: 0.1em;
+	left:  17em;
+	right:  0.1em;
+}
+#bot	{ 
+	bottom: 0.2em;
+	height: 8.5em; 
+	left: 0;
+	right: 0;
+	border: 0px solid #333; 
+
+}
+
+#dgn	{ 			/* служебная область  */
+	bottom: 0.5em;
+	top: 0.5em; 
+	left: 0.5em;
+	width: 16em;
+	border: 0px solid #333; 
+	margin: 0em;
+	padding: 0.5em;
+}
+
+#cntxMenu { /* контекстное меню */
+	display: none;
+	position: absolute;
+	z-index: 20;
+	padding: 1.1em;
+	margin: 0.5em;
+	border: 1px solid #333;
+	background: #fff;
+}
+
+#cntxMenu{
+	-webkit-box-shadow: 5px 5px 5px 0px #777;
+	box-shadow: 5px 5px 5px 0px #777;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;		
+}
+
+
+#header,
+#nav,
+#work,
+#buf {
+	margin: 0;
+	padding: 0;
+}
+
+#navW,
+#workW,
+#bufW,
+#cmdC,
+#cmdW {
+	display: block;
+	position: absolute;
+	z-index: 10;
+	top: 2em;
+	bottom: 0.2em;
+	left: 0.5em;
+	right: 0.1em;
+	padding: 0.5em;
+}	
+
+#bufW {
+	padding-top: 1em;
+}	
+
+#navW {
+	padding-top: 0;
+}
+
+#cmdW {
+	padding-top: 0.3em;
+	top: 2.72em;
+	bottom: 0.2em;
+}
+
+#cmdC,
+#cmdW {
+	margin-top: 0.25em;
+	right: 0.4em; 
+	overflow-y: auto;
+}
+
+#cmdC {
+	padding-top: 0.1em;
+	height: 1.71em;
+	top: 0;
+	line-height: 2.5em;
+	border: 1px solid #111;
+	z-index: 20;
+}
+
+#cmdC input.cmd {
+	font-size: 1.2em;
+	color: #071;
+	width:80%;
+	outline: none; 
+	border: none; 
+	/*
+	left: 4em;
+	right: 10em;
+	*/
+}	
+
+#cmdC .cmd_btn {
+/*	display: inline-block;  */
+	border: 1px solid #111; 
+	background: #ccc; 
+	font-size: 1.1em;
+	padding: 0.1em 2em;
+	margin-bottom: 0.2em;	
+	width: 10em;
+	cursor: pointer;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+}	
+
+
+
+#bufW  { right: 0.5em; }
+#workW { right: 0.23em; }
+
+#navW,
+#workW,
+#bufW,
+#cmdC,
+#cmdW {
+	border: 1px solid #333; 
+	background-color: #fff; 
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+
+#navW,
+#workW {
+	border-top-left-radius: 1px;
+	-webkit-border-top-left-radius: 1px;
+}
+
+#navW {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* ----------------  "регуляторы окон" ------------------------------*/
+#nw,
+#wb,
+#bb {
+	border: 1px solid #777; 
+	background-color: #777;
+	z-index: 15;	
+}
+
+#nw, #wb {	width: 1px; }
+
+#nw {	left: 17.05em; }
+#wb {	right: 14.7em; }
+
+
+#bb {
+	left:  18em;
+	right: 2em;
+	bottom: 8.5em;
+	height: 1px;
+}
+
+#nw:hover,
+#wb:hover,
+#bb:hover {
+	background-color: #fa5 ; 	
+	border-color: #fa5 ;	
+}
+
+#nw:hover,
+#wb:hover {	cursor: e-resize ; }
+
+#bb:hover { cursor: n-resize ; }
+/* ----------------  "регуляторы окон" ---------------------------END*/
+
+
+.reg_view {
+	display: inline-block;
+	position: relative;
+	padding: 0.5em 1.5em 0.3em 1.5em;
+	margin: 0 -0.25em;
+	z-index: 10;
+	line-height: 1.25em;
+	background-color: #fff; 
+	border: 1px solid #155;
+	border-bottom: 0;
+	border-top-left-radius: 1em 2em;
+	border-top-right-radius: 1em 2em;
+	-webkit-border-top-left-radius:  0.5em 2em;
+	-webkit-border-top-right-radius: 0.5em 2em;
+}
+
+.reg_view:first-child {
+	margin-left: 0.5em;
+}
+
+.reg_view {
+	cursor: pointer;
+	-webkit-box-shadow: inset 1px 1px 0 white;
+	-moz-box-shadow: inset 1px 1px 0 white;	
+	background-color: #eee;
+}
+
+.reg_view.tek {
+	z-index: 20;
+	cursor: default;
+	font-weight: bold;
+	background-color: #fff;
+}
+
+
+/* -------------- общее оформление  -------------------------------END */
+
+
+/* -------------- оформление информации  ----------------------------- */
+
+
+#workC a { 
+	display: inline-block;
+}
+
+a:hover { 
+	cursor: pointer; 
+	background: #f7f7f7;
+}
+
+a[type="DIR"] {	font-weight: bold; }
+.rightClick  { background: #eee }
+
+
+/*a.node:hover { background: #cce; }
+
+/* -------------- оформление "дерева"  ------------------------------- */
+
+.db_node,
+.tree_node {
+	position: relative;
+	margin-left: 1em;
+	padding-left: 0.5em;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.tree_node {
+	display: none;
+}
+
+.tree_node:hover a:first-child {
+	background: #eee;
+}
+	
+.db_node a {
+	color: #557;
+}	
+
+.db_crn a ,
+.db_node a ,
+.tree_node a {
+	display: inline-block;
+	width: 100%;
+	padding-left: 0.1em;
+	vertical-align: 10%;
+	font-weight: bold;
+}
+
+.mark_clop{
+	display: inline-block;
+	cursor: pointer ;
+	font-size: 1.2em;
+}	
+
+.mark_clop:before {
+	content: '\2610';
+	color: #1a4;
+}
+
+
+
+
+#nav[reg='db'] #navW {
+	padding-top: 1em;
+}
+	
+
+#nav[view='db'] .mark_clop:before,
+#nav[reg='db'] .mark_clop:before {
+	content: '\22A5';
+	color: #1a4;
+}
+
+#nav #navW .crn.tree_node  { 
+	display: block;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#work[reg="file"][view="tile"] a:hover { 
+	background: inherit;
+}
+
+
+#work[reg='db'] #workW {
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+/*#nav #navW div
+*/
+.tree_node:first-child  { 
+
+}
+/*
+.tree_node { display: none;  }
+*/
+
+.tree_node.open>.tree_node, 
+.tree_node[level='0'] { 
+	display: block; 
+	color: #151 ;
+}
+
+.tree_node[parent='yes']>.mark_clop:before { content: '\2611'; }
+.tree_node.open>.mark_clop:before { content: '\2612'; }
+
+.tree_node[parent='yes']>a { 
+	color: #721;
+ }
+
+.db_crn.curent > a ,
+.db_node.curent > a ,
+.tree_node.curent > a { 
+	background: #efe;
+ }
+
+/* -------------- оформление "дерева"  ----------------------------END */
+
+
+/* -------------- оформление "рабочей области"  ---------------------- */
+
+
+#work a {
+}
+
+#workW {
+	padding-top: 0;
+}
+
+#workW .del {
+	font-weight: bold;
+	font-size: 1.4em;
+}	
+
+#workW #path {
+	display: block;
+	position: absolute;
+}
+	
+#navW .db_crn,
+#workW #path {
+	width: 99%;
+	height: 1.95em;
+	margin-top: 0.5em;
+	margin-left: 0.5em;
+}	
+#workW a.path {
+	color: #777;
+}
+
+#workW a.path:first-child {
+	margin-left: 0.2em;
+}
+
+#workW .wrk{
+	display: block;
+	position: absolute;
+	left: 0.5em;
+	right:0.5em;
+	top: 3.15em;
+	bottom: 0.5em;	
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+	
+#workW a.last.path {
+	cursor: default;
+}	
+
+#work[view='tabl'] .wrk .node {
+	display: flex;
+	flex-flow: row nowrap;
+	align-content: flex-start;
+	max-width: 33em;
+}
+#work[view='tabl'] .wrk .node span {
+	
+}	
+#work[view='tabl'] .wrk .node span.name {
+	flex: 12 6 12em;
+}
+
+#work[view='tabl'] .wrk .node span.parDop {
+	flex: 5 4 5em;
+	display: inline-block;
+/*	width: 11em; */
+	text-align: right;
+}
+
+#work[view='tabl'] .wrk .node span.first,
+#work[view='tabl'] .wrk .node span.last {
+	flex: 1 0 0em;
+}
+
+	
+#work[view='tabl'] .wrk .node span.parDop.icon {
+	display: none;
+}
+
+#work[view='list'] .parDop ,
+#work[view='tile'] .parDop {
+	display: none;
+}
+
+
+#work[view='list'] .wrk{
+	display: flex;
+	flex-flow: column wrap;
+	align-content: flex-start;
+	overflow-x: auto;
+}
+#work[view='list'] .node {
+	margin-left: 2.3em;
+	padding: 0.1em;
+	width: 11em;
+}
+
+#work[view='list'] #path .path {
+	margin-left: 0.51em;
+	padding: 0.1em;
+	width: 11em;
+}
+
+#work[view='list'] .node .name {
+	white-space: nowrap;
+}
+
+#work[view='tile'] .wrk {
+	display: block;
+	vertical-align: top;
+}
+
+#work[view='tile'] .wrk span {
+	display: none;
+	white-space: normal; 		
+}	
+
+#work[view='tile'] .wrk .node {
+	display: inline-block;	
+	vertical-align: top;
+	width: 11em;
+	height: 12em;
+	margin: 1em;
+	padding: 1em;
+	white-space: normal; 
+}
+
+#work[view='tile'] .wrk .node .icon {
+	display: block;
+	width: 100%;
+	height: 80%;
+	line-height: 450%; 
+/*	vertical-align: bottom;*/
+	text-align: right;
+	font-size: 2.5em;
+	color: #db66;
+	border: 1px solid #963;
+	background: #eda;
+	background-size: cover; /* contain cover */
+	background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+#work[view='tile'] .wrk .node .icon {
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 1px 1px 2px 0px #777;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;		
+}
+
+	
+#work[view='tile'] .wrk .node[type='DIR'] .icon {
+	border-right: 2px solid #963;	
+	border-bottom: 2px solid #963;	
+	-webkit-box-shadow: 2px 3px 4px 0px #aaa;
+	box-shadow: 2px 2px 5px 0px #555;
+}
+
+#work[view='tile'] .wrk .node:hover .icon {
+	box-shadow: 2px 2px 5px 0px #fda601;
+}
+
+#work[view='tile'] .wrk .node .name {
+	display: block;
+	margin-top: 0.25em;
+	word-break: break-all;
+}
+
+
+#workW .tbl {
+    display: table;
+	margin-top: 1.1em;
+	border-collapse: collapse;
+}
+
+#workW .tbl .tr {
+    display: table-row;
+}
+#workW .tbl .tr.keys {
+	font-weight: bold;
+}	
+
+#workW .tbl .tr .td {
+    display: table-cell;
+	text-align: center;
+	border: 1px solid #999;
+	padding: 0.35em 0.71em;
+	max-width: 33em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#workW .tbl .tr .td[name='text'],
+#workW .tbl .tr .td.long_txt {
+	text-align: left;
+}
+
+/* --------------------------------------- */
+
+#showZ{
+	display: none;	
+	position: absolute;
+	z-index: 33;
+	width:  100%;
+	height: 100%;
+}
+	
+#showZo{
+	display: flex;
+	width:  100%;
+	height: 100%;
+	background: rgba( 202, 202, 202, 0.5);
+	background-color: rgba( 202, 202, 202, 0.5);
+}
+
+#showZ #showZone{
+	max-width: 90%;
+	max-height: 90%;
+	margin: auto;
+}
+
+#showZ #showZone * {
+	max-width:  100%;
+	max-height: 100%;
+}
+
+#showZ #showZone[type='txt'] {
+	padding: 2em;
+	overflow-x: auto;
+	overflow-y: auto;
+	background: #fff ;
+	border: 2px groove #333;
+}
+
+#showZ #showZone[type='video'] video,
+#showZ #showZone[type='img'] img{
+	border: 7px groove #333;
+	border-left-color: #777;
+	border-top-color:  #777;
+}
+
+
+#showZ #showZone[type='pdf'] {
+	width:  100%;
+	height: 100%;
+}
+
+#showZ #showZone[type='pdf'] object {
+	width:  100%;
+	height: 100%;
+}
+
+
+/*
+#showZ{
+	display: table;
+	position: absolute;
+	z-index: 33;
+	width: 100%;
+	height: 100%;
+	padding: 10em;
+	background: rgba( 202, 202, 202, 0.5);
+	background-color: rgba( 202, 202, 202, 0.5);
+}
+
+#showZ #showZone{
+    display: table-cell;
+	margin: auto;
+	max-width: 90%;
+	max-height: 90%;
+    background-color: #fff;	
+}
+
+/*
+#workW[view="list"] .wrk .dir_zone{
+	display: flex;
+	flex-wrap: wrap;	
+}	
+
+*/
+
+/* -------------- оформление "рабочей области"  -------------------END */
+/*
+	display: block;
+	position: absolute;
+*/
+/*
+.tree_node.close>a { 
+	color: #f14;
+	font-weight: bold;
+ }
+*/
+
